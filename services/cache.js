@@ -6,7 +6,7 @@ const mycache = new cache({
 
 module.exports.createCache = (key, data) => {
     try {
-        if (key != null && data != null) mycache.set(key, data, 5)
+        if (key != null && data != null) mycache.set(key, data)
         return true
     } catch (error) {
         return false
