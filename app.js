@@ -8,6 +8,7 @@ require('dotenv').config();
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const limiter = require('./middlewares');
+const { deleteAll } = require('./services/cache');
 
 const app = express();
 
@@ -22,7 +23,7 @@ app.use('/users', usersRouter);
 app.use(function (req, res, next) {
   next(createError(404));
 });
-
+deleteAll();
 // error handler
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
